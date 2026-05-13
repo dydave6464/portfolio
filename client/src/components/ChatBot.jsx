@@ -27,7 +27,13 @@ export default function ChatBot() {
           errorMessage: 'Something went wrong. Please try again.',
           backgroundColor: '#f4f6f8',
           fontSize: 15,
-          poweredByTextColor: '#5e6770',
+          poweredByTextColor: '#f4f6f8',
+          footer: {
+            textColor: '#f4f6f8',
+            text: '',
+            company: '',
+            companyLink: '',
+          },
           botMessage: {
             backgroundColor: '#e9ecf0',
             textColor: '#0f1318',

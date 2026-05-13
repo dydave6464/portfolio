@@ -7,6 +7,7 @@ import Projects from './pages/Projects.jsx'
 import Services from './pages/Services.jsx'
 import Contact from './pages/Contact.jsx'
 import Nailsthetic from './pages/projects/Nailsthetic.jsx'
+import ChatBot from './components/ChatBot.jsx'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <ChatBot />
     </div>
   )
 }

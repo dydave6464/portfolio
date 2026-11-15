@@ -107,7 +107,7 @@ body {
 .chat-dot:nth-child(3) { animation-delay: 300ms; }
 
 @media (prefers-reduced-motion: reduce) {
-  .chat-in, .chat-dot { animation: none; }
+  .rise, .chat-in, .chat-dot { animation: none; }
 }
 
 /* Small square list marker (replaces dash glyphs) */
@@ -126,3 +126,24 @@ body {
     radial-gradient(var(--dot-color) 1px, transparent 1px);
   background-size: 100% 100%, 18px 18px;
 }
+
+/* Keyboard focus: one consistent, theme-aware ring */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Skip link: hidden until focused with the keyboard */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  font-size: 0.875rem;
+  transition: top 150ms ease;
+}
+.skip-link:focus { top: 1rem; }

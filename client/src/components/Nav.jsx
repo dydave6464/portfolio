@@ -1,5 +1,6 @@
-import { NavLink, Link } from 'react-router-dom'
-import { useState } from 'react'
+import { NavLink, Link, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { FiX } from 'react-icons/fi'
 import ThemeToggle from './ThemeToggle.jsx'
 
 const links = [
@@ -12,6 +13,18 @@ const links = [
 
 export default function Nav() {
   const [open, setOpen] = useState(false)
+  const { pathname } = useLocation()
+
+  // Close the phone menu after navigating (including via the logo) or on Escape.
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
 
   return (
     <header className="border-b hairline sticky top-0 z-30 bg-[color:var(--color-bg)]/85 backdrop-blur">
@@ -45,16 +58,22 @@ export default function Nav() {
         <ThemeToggle />
         <button
           onClick={() => setOpen((v) => !v)}
-          aria-label="Menu"
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
           className="h-10 w-10 grid place-items-center"
         >
+          {open ? (
+            <FiX className="text-xl" />
+          ) : (
           <span className="block w-5 h-px bg-[color:var(--color-ink)] relative before:content-[''] before:absolute before:w-5 before:h-px before:bg-[color:var(--color-ink)] before:-top-1.5 after:content-[''] after:absolute after:w-5 after:h-px after:bg-[color:var(--color-ink)] after:top-1.5" />
+          )}
         </button>
         </div>
       </div>
 
       {open && (
-        <nav className="md:hidden border-t hairline bg-[color:var(--color-bg)]">
+        <nav id="mobile-menu" aria-label="Main" className="md:hidden border-t hairline bg-[color:var(--color-bg)]">
           {links.map((l) => (
             <NavLink
               key={l.to}

@@ -16,6 +16,8 @@ const projects = [
 export default function Projects() {
   return (
     <section className="mx-auto max-w-6xl px-6 lg:px-10 pt-16 lg:pt-24 pb-24">
+      <title>Projects · Dave Villasan</title>
+
       <div className="flex items-center gap-3 mb-10 rise rise-1">
         <span className="text-xs tracking-[0.2em] uppercase text-[color:var(--color-muted)]">
           Projects

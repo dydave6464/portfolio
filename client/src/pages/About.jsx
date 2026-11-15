@@ -1,6 +1,8 @@
 export default function About() {
   return (
     <section className="mx-auto max-w-5xl px-6 lg:px-10 pt-16 lg:pt-24 pb-24">
+      <title>About · Dave Villasan</title>
+
       <div className="flex items-center gap-3 mb-10 rise rise-1">
         <span className="text-xs tracking-[0.2em] uppercase text-[color:var(--color-muted)]">
           About
@@ -19,10 +21,10 @@ export default function About() {
         </div>
 
         <div className="col-span-12 lg:col-span-8 rise rise-3 space-y-6 text-lg leading-relaxed text-[color:var(--color-ink-soft)]">
-          <p className="font-display font-semibold text-3xl lg:text-4xl text-[color:var(--color-ink)] leading-snug tracking-tight">
+          <h1 className="font-display font-semibold text-3xl lg:text-4xl text-[color:var(--color-ink)] leading-snug tracking-tight">
             I'm Dave, a Bachelor of Science in Information Technology student at the
             <span className="text-[color:var(--color-accent)]"> University of Cebu, Main Campus</span>.
-          </p>
+          </h1>
 
           <p>
             I'm at the start of my journey as a developer. No professional experience

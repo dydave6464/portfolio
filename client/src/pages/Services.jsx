@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const services = [
   {
     title: 'Web Development',
@@ -16,6 +18,8 @@ const services = [
 export default function Services() {
   return (
     <section className="mx-auto max-w-6xl px-6 lg:px-10 pt-16 lg:pt-24 pb-24">
+      <title>Services · Dave Villasan</title>
+
       <div className="flex items-center gap-3 mb-10 rise rise-1">
         <span className="text-xs tracking-[0.2em] uppercase text-[color:var(--color-muted)]">
           Services
@@ -60,12 +64,12 @@ export default function Services() {
               ))}
             </ul>
 
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="mt-8 inline-flex items-center gap-2 link-underline text-sm tracking-wide"
             >
               Start a conversation →
-            </a>
+            </Link>
           </article>
         ))}
       </div>

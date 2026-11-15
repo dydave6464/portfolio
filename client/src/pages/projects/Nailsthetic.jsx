@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 export default function Nailsthetic() {
   return (
     <article className="mx-auto max-w-5xl px-6 lg:px-10 pt-12 lg:pt-16 pb-24">
+      <title>Nailsthetic case study · Dave Villasan</title>
+
       {/* Back link */}
       <Link
         to="/projects"

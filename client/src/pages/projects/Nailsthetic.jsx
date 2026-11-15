@@ -44,7 +44,10 @@ export default function Nailsthetic() {
       <figure className="mt-12 rise rise-3 overflow-hidden border hairline rounded-[6px]">
         <img
           src="/projects/nailsthetic/cover.jpg"
-          alt="Preview of the Nailsthetic website"
+          width="1200"
+          height="630"
+          decoding="async"
+          alt="Nailsthetic technicians in masks working on a client's nails"
           className="w-full aspect-[16/9] object-cover"
         />
       </figure>
@@ -99,25 +102,39 @@ export default function Nailsthetic() {
 
       {/* Visual gallery */}
       <div className="mt-16 grid grid-cols-12 gap-4 rise">
-        <figure className="col-span-12 md:col-span-7 overflow-hidden border hairline rounded-[6px]">
+        {/* From md up, the studio photo fills the height set by the tall photo beside it. */}
+        <figure className="relative col-span-12 md:col-span-7 aspect-[4/3] md:aspect-auto overflow-hidden border hairline rounded-[6px]">
           <img
             src="/projects/nailsthetic/studio.jpg"
+            width="1600"
+            height="900"
+            loading="lazy"
+            decoding="async"
             alt="Nailsthetic studio reception wall with the gold Nail Sthetic Privé sign"
-            className="w-full aspect-[4/3] object-cover"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </figure>
         <figure className="col-span-6 md:col-span-5 overflow-hidden border hairline rounded-[6px]">
           <img
             src="/projects/nailsthetic/gallery-1.jpg"
+            width="960"
+            height="1200"
+            loading="lazy"
+            decoding="async"
             alt="Pedicure with glossy white polish"
             className="w-full aspect-[4/5] object-cover"
           />
         </figure>
+        {/* Same 4:5 shape as its neighbour on phones; a wide crop on larger screens. */}
         <figure className="col-span-6 md:col-span-12 overflow-hidden border hairline rounded-[6px]">
           <img
             src="/projects/nailsthetic/gallery-2.jpg"
+            width="900"
+            height="1200"
+            loading="lazy"
+            decoding="async"
             alt="Almond nails with chrome finish and gold shell nail art"
-            className="w-full aspect-[16/9] object-cover"
+            className="w-full aspect-[4/5] md:aspect-[16/9] object-cover"
           />
         </figure>
       </div>

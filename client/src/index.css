@@ -60,7 +60,10 @@ body {
   letter-spacing: -0.02em;
 }
 
-.hairline { border-color: var(--color-rule); }
+/* In the components layer so hover:/focus: border colours can override it */
+@layer components {
+  .hairline { border-color: var(--color-rule); }
+}
 
 .link-underline {
   background-image: linear-gradient(currentColor, currentColor);
@@ -133,6 +136,12 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 3px;
+}
+
+/* Text fields show focus by darkening their underline instead, so no ring there */
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
 }
 
 /* Skip link: hidden until focused with the keyboard */

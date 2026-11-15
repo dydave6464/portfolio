@@ -8,7 +8,7 @@ const projects = [
     href: 'https://nailsthetic.vercel.app',
     caseStudy: '/projects/nailsthetic',
     blurb:
-      'A polished marketing site for a Cebu-based nail studio. Services, gallery, and booking-friendly contact paths — built to translate the studio’s calm in-person experience into a clean, mobile-first web presence.',
+      'A polished marketing site for a Cebu-based nail studio. Services, gallery, and booking-friendly contact paths, built to translate the studio’s calm in-person experience into a clean, mobile-first web presence.',
     tags: ['React', 'Tailwind', 'Vite', 'Vercel'],
   },
 ]
@@ -84,7 +84,7 @@ export default function Projects() {
       </div>
 
       <p className="mt-12 text-sm text-[color:var(--color-muted)] rise rise-4">
-        More projects in progress — check back soon.
+        More projects in progress. Check back soon.
       </p>
     </section>
   )

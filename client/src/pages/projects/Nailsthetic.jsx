@@ -21,7 +21,7 @@ export default function Nailsthetic() {
             Nailsthetic
           </h1>
           <p className="mt-5 text-lg lg:text-xl text-[color:var(--color-ink-soft)] max-w-2xl leading-relaxed">
-            A polished marketing site for a Cebu-based nail studio — built to
+            A polished marketing site for a Cebu-based nail studio, built to
             translate the studio's calm, refined in-person experience into a
             web presence that converts walk-by interest into bookings.
           </p>
@@ -42,7 +42,7 @@ export default function Nailsthetic() {
       <figure className="mt-12 rise rise-3 overflow-hidden border hairline rounded-[6px]">
         <img
           src="/projects/nailsthetic/cover.jpg"
-          alt="Nailsthetic — site preview"
+          alt="Preview of the Nailsthetic website"
           className="w-full aspect-[16/9] object-cover"
         />
       </figure>
@@ -68,7 +68,7 @@ export default function Nailsthetic() {
       <Section heading="The brief">
         <p>
           The studio needed a digital presence that matched the considered
-          aesthetic of their physical space — a place where every detail is
+          aesthetic of their physical space, a place where every detail is
           chosen. The existing approach was scattered across social posts and
           DMs, which made it hard for new clients to find services, prices, and
           how to book.
@@ -86,9 +86,9 @@ export default function Nailsthetic() {
           ].map((line) => (
             <li
               key={line}
-              className="flex items-baseline gap-3 text-[color:var(--color-ink-soft)]"
+              className="flex items-start gap-3 text-[color:var(--color-ink-soft)]"
             >
-              <span className="text-[color:var(--color-accent)]">—</span>
+              <span aria-hidden="true" className="bullet mt-[0.7em]" />
               {line}
             </li>
           ))}
@@ -100,21 +100,21 @@ export default function Nailsthetic() {
         <figure className="col-span-12 md:col-span-7 overflow-hidden border hairline rounded-[6px]">
           <img
             src="/projects/nailsthetic/studio.jpg"
-            alt="Nailsthetic — studio"
+            alt="Nailsthetic studio reception wall with the gold Nail Sthetic Privé sign"
             className="w-full aspect-[4/3] object-cover"
           />
         </figure>
         <figure className="col-span-6 md:col-span-5 overflow-hidden border hairline rounded-[6px]">
           <img
             src="/projects/nailsthetic/gallery-1.jpg"
-            alt="Nailsthetic — gallery 1"
+            alt="Pedicure with glossy white polish"
             className="w-full aspect-[4/5] object-cover"
           />
         </figure>
         <figure className="col-span-6 md:col-span-12 overflow-hidden border hairline rounded-[6px]">
           <img
             src="/projects/nailsthetic/gallery-2.jpg"
-            alt="Nailsthetic — gallery 2"
+            alt="Almond nails with chrome finish and gold shell nail art"
             className="w-full aspect-[16/9] object-cover"
           />
         </figure>
@@ -124,15 +124,15 @@ export default function Nailsthetic() {
         <ul className="space-y-3">
           {[
             'Working with a real client teaches you that scope is a conversation, not a spec.',
-            'Restraint reads as quality — fewer, more deliberate choices outperformed more features.',
+            'Restraint reads as quality: fewer, more deliberate choices outperformed more features.',
             'Performance and image discipline matter on mobile data plans (a real constraint here in PH).',
             'Shipping a small thing that works beats a big thing that almost does.',
           ].map((line) => (
             <li
               key={line}
-              className="flex items-baseline gap-3 text-[color:var(--color-ink-soft)]"
+              className="flex items-start gap-3 text-[color:var(--color-ink-soft)]"
             >
-              <span className="text-[color:var(--color-accent)]">—</span>
+              <span aria-hidden="true" className="bullet mt-[0.7em]" />
               {line}
             </li>
           ))}

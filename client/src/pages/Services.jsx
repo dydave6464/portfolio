@@ -2,7 +2,7 @@ const services = [
   {
     title: 'Web Development',
     summary:
-      'Custom marketing sites, landing pages, and small web apps. Modern stack — React, Tailwind, Node — built for speed, clarity, and easy handoff.',
+      'Custom marketing sites, landing pages, and small web apps, built on a modern stack (React, Tailwind, Node) for speed, clarity, and easy handoff.',
     deliverables: ['Responsive design', 'Hand-coded components', 'Deploy on Vercel / Netlify', 'Light CMS integration'],
   },
   {
@@ -52,9 +52,9 @@ export default function Services() {
               {s.deliverables.map((d) => (
                 <li
                   key={d}
-                  className="flex items-baseline gap-3 text-sm text-[color:var(--color-ink-soft)]"
+                  className="flex items-start gap-3 text-sm text-[color:var(--color-ink-soft)]"
                 >
-                  <span className="text-[color:var(--color-accent)] font-display">—</span>
+                  <span aria-hidden="true" className="bullet mt-[0.55em]" />
                   {d}
                 </li>
               ))}

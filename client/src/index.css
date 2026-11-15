@@ -109,3 +109,11 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .chat-in, .chat-dot { animation: none; }
 }
+
+/* Small square list marker (replaces dash glyphs) */
+.bullet {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-accent);
+}

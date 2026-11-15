@@ -79,6 +79,11 @@ async function askGemini(messages, apiKey) {
     .join('')
 }
 
+// The site avoids em dashes; the prompt asks for none, and this catches any that slip through.
+function noEmDashes(text) {
+  return text.replace(/\s*—\s*/g, ', ')
+}
+
 async function httpError(res) {
   const err = new Error(`HTTP ${res.status}`)
   err.status = res.status
@@ -139,7 +144,7 @@ export default async function handler(req, res) {
 
   for (const provider of available) {
     try {
-      const reply = (await provider.ask(messages, process.env[provider.keyVar])).trim()
+      const reply = noEmDashes((await provider.ask(messages, process.env[provider.keyVar])).trim())
       if (reply) return res.status(200).json({ ok: true, reply })
       emptyReply = true
       console.error(`[chat] ${provider.name} returned an empty reply`)

@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-6 lg:px-10 py-10 flex flex-col md:flex-row gap-6 md:items-end md:justify-between">
         <div>
           <p className="font-display text-2xl font-medium leading-tight tracking-tight">
-            Made in Cebu —
+            Made in Cebu,
             <span className="text-[color:var(--color-accent)]"> with intent.</span>
           </p>
           <p className="text-sm text-[color:var(--color-muted)] mt-2">

@@ -26,7 +26,7 @@ export default function Contact() {
         body: JSON.stringify(payload),
       })
       if (!res.ok) throw new Error('Request failed')
-      setStatus({ state: 'sent', msg: 'Thanks — I’ll get back to you soon.' })
+      setStatus({ state: 'sent', msg: 'Thanks! I’ll get back to you soon.' })
       e.target.reset()
     } catch {
       setStatus({ state: 'error', msg: 'Could not send. Email me directly instead.' })

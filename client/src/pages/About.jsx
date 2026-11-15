@@ -20,7 +20,7 @@ export default function About() {
 
         <div className="col-span-12 lg:col-span-8 rise rise-3 space-y-6 text-lg leading-relaxed text-[color:var(--color-ink-soft)]">
           <p className="font-display font-semibold text-3xl lg:text-4xl text-[color:var(--color-ink)] leading-snug tracking-tight">
-            I'm Dave — a Bachelor of Science in Information Technology student at the
+            I'm Dave, a Bachelor of Science in Information Technology student at the
             <span className="text-[color:var(--color-accent)]"> University of Cebu, Main Campus</span>.
           </p>
 

@@ -30,14 +30,14 @@ export default function Home() {
         {/* Headline */}
         <div className="col-span-12 lg:col-span-8 rise rise-2">
           <h1 className="font-display font-semibold leading-[1] tracking-[-0.03em] text-[clamp(3rem,9vw,7.5rem)]">
-            Dave —
+            I'm Dave,
             <br />
             <span className="text-[color:var(--color-accent)]">building</span> things
             <br />
             for the web.
           </h1>
           <p className="mt-8 max-w-xl text-[color:var(--color-ink-soft)] text-lg leading-relaxed">
-            BSIT student at the University of Cebu — Main Campus. I design and ship
+            BSIT student at the University of Cebu, Main Campus. I design and ship
             considered web experiences, with a quiet bias for craft, clarity, and
             calm interfaces.
           </p>

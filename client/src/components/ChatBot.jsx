@@ -2,7 +2,7 @@ import { Fragment, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FiArrowUp, FiX } from 'react-icons/fi'
 
-const WELCOME = "Hi — ask me anything about Dave's work, projects, or how to get in touch."
+const WELCOME = "Hi! Ask me anything about Dave's work, projects, or how to get in touch."
 const SUGGESTIONS = ['What does Dave build?', 'Tell me about Nailsthetic', 'How can I hire Dave?']
 const MAX_CHARS = 1000
 

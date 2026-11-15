@@ -117,3 +117,12 @@ body {
   height: 6px;
   background-color: var(--color-accent);
 }
+
+/* Portrait panel: soft accent glow behind the cut-out, over a fine dot grid */
+.portrait-frame {
+  background-color: var(--color-bg-elev);
+  background-image:
+    radial-gradient(ellipse 70% 55% at 50% 38%, color-mix(in srgb, var(--color-accent) 22%, transparent), transparent 70%),
+    radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 100% 100%, 18px 18px;
+}

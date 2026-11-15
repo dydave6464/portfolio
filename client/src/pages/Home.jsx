@@ -70,13 +70,17 @@ export default function Home() {
 
         {/* Portrait */}
         <div className="col-span-12 lg:col-span-4 rise rise-3">
-          <figure className="relative">
-            <div className="aspect-[4/5] overflow-hidden rounded-[4px] border hairline bg-[color:var(--color-bg-elev)]">
-              {/* Placeholder portrait — replace /portrait.jpg in /public */}
+          <figure className="mx-auto max-w-sm lg:max-w-none">
+            <div className="portrait-frame relative aspect-[4/5] overflow-hidden rounded-[4px] border hairline">
+              {/* Transparent cut-out. To update it, replace /public/portrait.webp. */}
               <img
-                src="/portrait.jpg"
-                alt="Dave"
-                className="w-full h-full object-cover"
+                src="/portrait.webp"
+                width="433"
+                height="577"
+                alt="Portrait of John Dave Villasan in his University of Cebu BSIT uniform"
+                fetchPriority="high"
+                decoding="async"
+                className="relative w-full h-full object-cover object-bottom"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none'
                   e.currentTarget.parentElement.querySelector('[data-fallback]').style.display = 'flex'
@@ -90,6 +94,10 @@ export default function Home() {
                 D.
               </div>
             </div>
+            <figcaption className="mt-3 flex items-baseline justify-between gap-4 text-xs tracking-[0.2em] uppercase text-[color:var(--color-muted)]">
+              <span className="text-[color:var(--color-ink)]">John Dave Villasan</span>
+              <span>BSIT · UC Main</span>
+            </figcaption>
           </figure>
         </div>
       </div>

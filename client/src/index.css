@@ -10,6 +10,7 @@
   --color-accent: #3a4a5e;
   --color-accent-soft: #5a6a7e;
   --color-warm: #8a8f96;
+  --color-error: #b42318;
   --dot-color: rgba(58, 74, 94, 0.10);
 
   --font-display: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
@@ -27,6 +28,7 @@
   --color-accent: #8aa4c4;
   --color-accent-soft: #6f8aab;
   --color-warm: #6a7178;
+  --color-error: #f97066;
   --dot-color: rgba(138, 164, 196, 0.07);
 }
 

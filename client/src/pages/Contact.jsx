@@ -17,19 +17,22 @@ export default function Contact() {
       name: form.get('name'),
       email: form.get('email'),
       message: form.get('message'),
+      company: form.get('company'), // spam trap, see the hidden field below
     }
-    setStatus({ state: 'sending', msg: 'Sending…' })
+    setStatus({ state: 'sending', msg: '' })
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       })
-      if (!res.ok) throw new Error('Request failed')
+      const data = await res.json().catch(() => ({}))
+      if (!res.ok) throw new Error(data.error)
       setStatus({ state: 'sent', msg: 'Thanks! I’ll get back to you soon.' })
       e.target.reset()
-    } catch {
-      setStatus({ state: 'error', msg: 'Could not send. Email me directly instead.' })
+    } catch (err) {
+      const reason = err.message || 'Could not send.'
+      setStatus({ state: 'error', msg: `${reason} You can also email me directly.` })
     }
   }
 
@@ -88,11 +91,19 @@ export default function Contact() {
           onSubmit={onSubmit}
           className="col-span-12 lg:col-span-7 rise rise-4 space-y-6"
         >
-          <Field label="Your name" name="name" required />
-          <Field label="Email" name="email" type="email" required />
-          <Field label="Message" name="message" textarea required />
+          <Field label="Your name" name="name" autoComplete="name" maxLength={100} required />
+          <Field label="Email" name="email" type="email" autoComplete="email" maxLength={254} required />
+          <Field label="Message" name="message" textarea maxLength={4000} required />
 
-          <div className="flex items-center gap-4">
+          {/* Spam trap: hidden from people and screen readers; bots tend to fill it in. */}
+          <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+            <label>
+              Company
+              <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+            </label>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-3">
             <button
               type="submit"
               disabled={status.state === 'sending'}
@@ -100,17 +111,17 @@ export default function Contact() {
             >
               {status.state === 'sending' ? 'Sending…' : 'Send message'} →
             </button>
-            {status.msg && (
-              <p
-                className={`text-sm ${
-                  status.state === 'error'
-                    ? 'text-[color:var(--color-warm)]'
-                    : 'text-[color:var(--color-muted)]'
-                }`}
-              >
-                {status.msg}
-              </p>
-            )}
+            <p
+              role="status"
+              aria-live="polite"
+              className={`text-sm ${
+                status.state === 'error'
+                  ? 'text-[color:var(--color-error)]'
+                  : 'text-[color:var(--color-ink-soft)]'
+              }`}
+            >
+              {status.msg}
+            </p>
           </div>
         </form>
       </div>
@@ -118,7 +129,7 @@ export default function Contact() {
   )
 }
 
-function Field({ label, name, type = 'text', textarea, required }) {
+function Field({ label, name, type = 'text', textarea, ...inputProps }) {
   const base =
     'w-full bg-transparent border-b hairline pt-2 pb-3 text-lg focus:outline-none focus:border-[color:var(--color-ink)] transition-colors'
   return (
@@ -127,9 +138,9 @@ function Field({ label, name, type = 'text', textarea, required }) {
         {label}
       </span>
       {textarea ? (
-        <textarea name={name} required={required} rows={4} className={base} />
+        <textarea name={name} rows={4} className={base} {...inputProps} />
       ) : (
-        <input name={name} type={type} required={required} className={base} />
+        <input name={name} type={type} className={base} {...inputProps} />
       )}
     </label>
   )

@@ -34,18 +34,25 @@ export default async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'Invalid request body.' })
   }
 
+  // Spam trap: the form has a hidden "company" field that people never see.
+  // If it is filled in, report success so the bot moves on, but send nothing.
+  if (String(body.company ?? '').trim()) {
+    console.log('[contact] Spam trap triggered; message dropped')
+    return res.status(200).json({ ok: true })
+  }
+
   const name = String(body.name ?? '').trim().replace(/\s+/g, ' ')
   const email = String(body.email ?? '').trim()
   const message = String(body.message ?? '').trim()
 
   if (!name || !email || !message) {
-    return res.status(400).json({ ok: false, error: 'Missing required fields.' })
+    return res.status(400).json({ ok: false, error: 'Please fill in your name, email, and message.' })
   }
   if (email.length > LIMITS.email || !EMAIL_RE.test(email)) {
-    return res.status(400).json({ ok: false, error: 'Invalid email.' })
+    return res.status(400).json({ ok: false, error: 'Please enter a valid email address.' })
   }
   if (name.length > LIMITS.name || message.length > LIMITS.message) {
-    return res.status(400).json({ ok: false, error: 'Message too long.' })
+    return res.status(400).json({ ok: false, error: 'Your message is too long (4,000 characters max).' })
   }
 
   const { BREVO_API_KEY, CONTACT_FROM_EMAIL, CONTACT_TO_EMAIL } = process.env

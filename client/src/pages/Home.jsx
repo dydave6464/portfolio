@@ -4,6 +4,7 @@ import { FaLinkedinIn } from 'react-icons/fa6'
 const stack = [
   { name: 'HTML' },
   { name: 'CSS' },
+  { name: 'Tailwind CSS' },
   { name: 'JavaScript' },
   { name: 'TypeScript' },
   { name: 'C#' },

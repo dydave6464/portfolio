@@ -2,7 +2,7 @@ import { FaLinkedinIn, FaGithub } from 'react-icons/fa6'
 
 export default function Footer() {
   return (
-    <footer className="border-t hairline mt-24">
+    <footer className="border-t hairline">
       <div className="mx-auto max-w-6xl px-6 lg:px-10 py-10 flex flex-col md:flex-row gap-6 md:items-end md:justify-between">
         <div>
           <p className="font-display text-2xl font-medium leading-tight tracking-tight">

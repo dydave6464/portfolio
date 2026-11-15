@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { FiArrowUp, FiX } from 'react-icons/fi'
+import { FiArrowUp, FiMessageCircle, FiX } from 'react-icons/fi'
 
 const WELCOME = "Hi! Ask me anything about Dave's work, projects, or how to get in touch."
 const SUGGESTIONS = ['What does Dave build?', 'Tell me about Nailsthetic', 'How can I hire Dave?']
@@ -235,20 +235,23 @@ export default function ChatBot() {
         onClick={() => (open ? close() : setOpen(true))}
         aria-expanded={open}
         aria-controls="chat-panel"
-        className="fixed z-40 right-4 bottom-4 sm:right-6 sm:bottom-6 h-12 inline-flex items-center gap-3 pl-4 pr-5 rounded-full bg-[color:var(--color-ink)] text-[color:var(--color-bg)] text-sm tracking-wide shadow-[0_12px_30px_-10px_rgba(15,19,24,0.45)] hover:bg-[color:var(--color-accent)] transition-colors"
+        aria-label={open ? 'Close assistant' : 'Ask my assistant'}
+        className="fixed z-40 right-4 bottom-4 sm:right-6 sm:bottom-6 h-12 w-12 sm:w-auto inline-flex items-center justify-center gap-3 sm:pl-4 sm:pr-5 rounded-full bg-[color:var(--color-ink)] text-[color:var(--color-bg)] text-sm tracking-wide shadow-[0_12px_30px_-10px_rgba(15,19,24,0.45)] hover:bg-[color:var(--color-accent)] transition-colors"
       >
         {open ? (
           <>
-            <FiX className="text-base" />
-            Close
+            <FiX className="text-lg sm:text-base" />
+            <span className="hidden sm:inline">Close</span>
           </>
         ) : (
           <>
-            <span className="relative grid place-items-center h-2 w-2">
+            {/* Phones: a compact icon button. Larger screens: status dot and label. */}
+            <FiMessageCircle className="text-lg sm:hidden" />
+            <span className="relative hidden sm:grid place-items-center h-2 w-2">
               <span className="absolute inset-0 rounded-full bg-[color:var(--color-accent-soft)] animate-ping opacity-60 motion-reduce:hidden" />
               <span className="relative h-2 w-2 rounded-full bg-[color:var(--color-accent-soft)]" />
             </span>
-            Ask my assistant
+            <span className="hidden sm:inline">Ask my assistant</span>
           </>
         )}
       </button>

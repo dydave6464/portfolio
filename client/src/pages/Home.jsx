@@ -63,7 +63,7 @@ export default function Home() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
-              className="h-11 w-11 grid place-items-center rounded-full border hairline hover:bg-[color:var(--color-bg-elev)] transition-colors"
+              className="h-11 w-11 hidden sm:grid place-items-center rounded-full border hairline hover:bg-[color:var(--color-bg-elev)] transition-colors"
             >
               <FaLinkedinIn />
             </a>

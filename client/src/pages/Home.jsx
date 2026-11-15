@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom'
-import { FaLinkedinIn } from 'react-icons/fa6'
+import { FaGithub, FaLinkedinIn } from 'react-icons/fa6'
 
 const stack = [
-  { name: 'HTML' },
-  { name: 'CSS' },
-  { name: 'Tailwind CSS' },
-  { name: 'JavaScript' },
-  { name: 'TypeScript' },
-  { name: 'C#' },
-  { name: '.NET' },
-  { name: 'MySQL' },
+  { name: 'HTML', area: 'Frontend' },
+  { name: 'CSS', area: 'Frontend' },
+  { name: 'Tailwind CSS', area: 'Frontend' },
+  { name: 'JavaScript', area: 'Frontend' },
+  { name: 'TypeScript', area: 'Frontend' },
+  { name: 'React', area: 'Frontend' },
+  { name: 'Node.js', area: 'Backend' },
+  { name: 'C#', area: 'Backend' },
+  { name: '.NET', area: 'Backend' },
+  { name: 'MySQL', area: 'Backend' },
 ]
 
 export default function Home() {
@@ -23,8 +25,9 @@ export default function Home() {
           Portfolio
         </span>
         <span className="h-px flex-1 bg-[color:var(--color-rule)]" />
-        <span className="text-xs tracking-[0.2em] uppercase text-[color:var(--color-muted)]">
-          Cebu, PH
+        <span className="inline-flex items-center gap-2 whitespace-nowrap text-xs tracking-[0.2em] uppercase text-[color:var(--color-muted)]">
+          <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-[color:var(--color-accent)]" />
+          Open to work<span className="hidden sm:inline"> · Cebu, PH</span>
         </span>
       </div>
 
@@ -67,6 +70,15 @@ export default function Home() {
               className="h-11 w-11 hidden sm:grid place-items-center rounded-full border hairline hover:bg-[color:var(--color-bg-elev)] transition-colors"
             >
               <FaLinkedinIn />
+            </a>
+            <a
+              href="https://github.com/dydave6464"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="h-11 w-11 hidden sm:grid place-items-center rounded-full border hairline hover:bg-[color:var(--color-bg-elev)] transition-colors"
+            >
+              <FaGithub />
             </a>
           </div>
         </div>
@@ -125,7 +137,7 @@ export default function Home() {
                 {s.name}
               </span>
               <span className="col-span-3 text-right text-xs tracking-[0.2em] uppercase text-[color:var(--color-muted)]">
-                {s.name === 'C#' || s.name === '.NET' || s.name === 'MySQL' ? 'Backend' : 'Frontend'}
+                {s.area}
               </span>
             </li>
           ))}
